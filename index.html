@@ -21,6 +21,7 @@
                     <div class="card-body">
                         <form>
                             <div class="form-group">
+                                <input readonly="readonly" class="form-control" style="text-align: center" id="U_input" type="text">
                                 <input readonly="readonly" class="form-control" style="text-align: center" id="Input" type="text">
                             </div>
                         </form>
@@ -42,7 +43,7 @@
                             <button id="4" onclick="addText('4')" class="btn btn-light">4</button>
                             <button id="5" onclick="addText('5')" class="btn btn-light">5</button>
                             <button id="6" onclick="addText('6')" class="btn btn-light">6</button>
-                            <button id="plus" onclick="addText('+')" class="btn btn-light">+</button>
+                            <button id="plus" onclick="Evaluate('plus')" class="btn btn-light">+</button>
                         </div>
                         <br>
                         <div class="d-flex justify-content-between">
@@ -54,6 +55,7 @@
                         <br>
                         <div class="d-flex justify-content-between">
                                 <button id="0" onclick="addText('0')" class="btn btn-light">0</button>
+                                <button id="0" onclick="Enter()" class="btn btn-light">Enter</button>
                                 <button id="equal" onclick="Evaluate()"  class="btn btn-success">=</button>
                         </div>
                     </div>
@@ -63,17 +65,23 @@
     </div>
     
     <script>
-      
-
        /* ========================================
             now we have clean and simple RPN calculator
             credit to all idea contributor from internet
           ========================================  */
+        
+        
         function addText(text) {
             document.getElementById('Input').value += text;
         }
 
         const inputBox = document.getElementById('Input');
+        const upperIBox = document.getElementById('U_input');
+       
+        function Enter() {
+            document.getElementById('U_input').value += inputBox.value + ' '; 
+            inputBox.value = '' ;
+        }
 
         function Clear () {
             inputBox.value = '';
@@ -85,10 +93,28 @@
             }
         }
 
+        function Evaluate (order) {
+            if (inputBox.value != '' || '0') {
+                document.getElementById('U_input').value += inputBox.value + ' ';
+            }
+            switch (order) {
+                    case "divide" : 
+                    resultString = '/';
+                    break;
+                    case "multiply":
+                    resultString = '*';
+                    break;
+                    case "plus":
+                    resultString = '+';
+                    break;
+                    case "minus":
+                    resultString = '-';
 
+            }
+            const orderInput = resultString;
+            const U_inputbox =  document.getElementById('U_input').value + orderInput;
 
-        function Evaluate () {
-            const input = inputBox.value;
+            const input = U_inputbox;
             const values = input.split(" ");
             const array = new Array();
          
