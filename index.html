@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <form>
                             <div class="form-group">
-                                <input class="form-control" style="text-align: center" id="Input" type="text">
+                                <input readonly="readonly" class="form-control" style="text-align: center" id="Input" type="text">
                             </div>
                         </form>
                         <div class="d-flex justify-content-between">
@@ -69,9 +69,9 @@
             now lets create addText() to add value 
                   into our calculator input
           ========================================  */
-          function addText(text) {
-                document.getElementById('Input').value += text;
-          }
+        function addText(text) {
+            document.getElementById('Input').value += text;
+        }
 
         // lets add some clear and backspace that simple calculator should have
         const inputBox = document.getElementById('Input');
@@ -100,10 +100,14 @@
             console.log(values);
             //we got  ["8", "9", "*"] as arrays as we input
 
+            //we miss to declare array
+            const array = new Array();
             //and lets create values loop on each array
             for( i in values ) {
-                //ops no function there!!!
-                if (values[i] != "") {
+            //now check out any operator include
+                if (values[i] != "+" && values[i] != "*" && values[i] != "-" && values[i] != "/") {
+                    array.push(parseInt(values[i]));
+                }else{   
                 const operator = values[i];
                 //we will use results to calculate on switch
                 //we need values to calculate like val1 and val2
@@ -131,8 +135,9 @@
                 }    
             }
                 
-        }
-            //and how we return the value and what if there is no operator  ?
+            }
+            inputBox.value = array;
+            
         }
 
     </script>
