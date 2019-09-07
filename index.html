@@ -66,14 +66,13 @@
       
 
        /* ========================================
-            now lets create addText() to add value 
-                  into our calculator input
+            now we have clean and simple RPN calculator
+            credit to all idea contributor from internet
           ========================================  */
         function addText(text) {
             document.getElementById('Input').value += text;
         }
 
-        // lets add some clear and backspace that simple calculator should have
         const inputBox = document.getElementById('Input');
 
         function Clear () {
@@ -86,58 +85,43 @@
             }
         }
 
-        //ok now coing time again....
 
-        //we will create evaluate function which is for calculation
-        //we created the btn space for a reason ...and here we want to do calculation by array
 
         function Evaluate () {
-            //we will call the input value here
             const input = inputBox.value;
-            
-            // now lets take those value into array by splitting spaces
             const values = input.split(" ");
-            console.log(values);
-            //we got  ["8", "9", "*"] as arrays as we input
-
-            //we miss to declare array
             const array = new Array();
-            //and lets create values loop on each array
+         
             for( i in values ) {
-            //now check out any operator include
-                if (values[i] != "+" && values[i] != "*" && values[i] != "-" && values[i] != "/") {
+                if (values[i] != "+" && values[i] != "*" && values[i] != "-" && values[i] != "/") {                    
                     array.push(parseInt(values[i]));
-                }else{   
+                } else {   
                 const operator = values[i];
-                //we will use results to calculate on switch
-                //we need values to calculate like val1 and val2
                 const val2 = array.pop();
                 const val1 = array.pop();
+
+                    switch (operator) {
+                        case "+":
+                            array.push(eval("val1 + val2"));
+                            break;
+
+                        case "*":
+                            array.push(eval("val1 * val2"));
+                            break;
+
+                        case "-":
+                            array.push(eval("val1 - val2"));
+                            break;
+
+                        case "/":
+                            array.push(eval("val1 / val2"));
+                            break;
+
+                    }    
+                }
                 
-                //here, we do caculation by catching operator and do math two number before it
-                switch (operator) {
-                    case "+":
-                        array.push(eval("val1 + val2"));
-                        break;
-
-                    case "*":
-                        array.push(eval("val1 * val2"));
-                         break;
-
-                    case "-":
-                        array.push(eval("val1 - val2"));
-                        break;
-
-                    case "/":
-                        array.push(eval("val1 / val2"));
-                        break;
-
-                }    
             }
-                
-            }
-            inputBox.value = array;
-            
+            inputBox.value = array;    
         }
 
     </script>
