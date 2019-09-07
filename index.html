@@ -25,7 +25,7 @@
                             </div>
                         </form>
                         <div class="d-flex justify-content-between">
-                            <button id="clear"  class="btn btn-outline-danger">C</button>
+                            <button id="clear" onclick="Clear()" class="btn btn-outline-danger">C</button>
                             <button id="divide" onclick="addText('/')" class="btn btn-light">/</button>
                             <button id="multiply" onclick="addText('*')" class="btn btn-light">*</button>
                             <button id="space" onclick="addText(' ')" class="btn btn-light">space</button>
@@ -49,7 +49,7 @@
                             <button id="1" onclick="addText('1')" class="btn btn-light">1</button>
                             <button id="2" onclick="addText('2')" class="btn btn-light">2</button>
                             <button id="3" onclick="addText('3')" class="btn btn-light">3</button>
-                            <button id="backspace"  class="btn btn-outline-success"> < </button>
+                            <button id="backspace" onclick="Backspace()" class="btn btn-outline-success"> < </button>
                         </div>
                         <br>
                         <div class="d-flex justify-content-between">
@@ -72,6 +72,22 @@
           function addText(text) {
                 document.getElementById('Input').value += text;
           }
+
+        // lets add some clear and backspace that simple calculator should have
+        const inputBox = document.getElementById('Input');
+
+        function Clear () {
+            inputBox.value = '';
+        }
+
+        function Backspace () {
+            if(inputBox.value != '') {
+                inputBox.value = inputBox.value.substr(0,inputBox.value.length-1);
+            }
+        }
+
+        //we will continue later on this point
+
     </script>
 </body>
 </html>
