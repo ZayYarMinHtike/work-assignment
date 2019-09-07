@@ -54,7 +54,7 @@
                         <br>
                         <div class="d-flex justify-content-between">
                                 <button id="0" onclick="addText('0')" class="btn btn-light">0</button>
-                                <button id="equal"  class="btn btn-success">=</button>
+                                <button id="equal" onclick="Evaluate()"  class="btn btn-success">=</button>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,17 @@
             }
         }
 
-        //we will continue later on this point
+        //ok now coing time again....
+
+        //we will create evaluate function which is for calculation
+        //we created the btn space for a reason ...and here we want to do calculation by array
+
+        function Evaluate () {
+            //we will call the input value here
+            const input = inputBox.value;
+            console.log(input);
+            //we got the values of input in console
+        }
 
     </script>
 </body>
