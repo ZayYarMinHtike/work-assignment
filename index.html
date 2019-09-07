@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>RPN Calculator</title>
+</head>
+<body>
+    <!-- 
+        =======================================================
+            first we will make our small simple calulator UI
+        =======================================================
+     -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-8">  
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <input class="form-control" style="text-align: center" id="Input" type="text">
+                            </div>
+                        </form>
+                        <div class="d-flex justify-content-between">
+                            <button id="clear"  class="btn btn-outline-danger">C</button>
+                            <button id="divide"  class="btn btn-light">/</button>
+                            <button id="multiply"  class="btn btn-light">*</button>
+                            <button id="space"  class="btn btn-light">space</button>
+                        </div>   
+                        <br>
+                        <div class="d-flex justify-content-between">
+                            <button id="7"  class="btn btn-light">7</button>
+                            <button id="8"  class="btn btn-light">8</button>
+                            <button id="9"  class="btn btn-light">9</button>
+                            <button id="minus"  class="btn btn-light">-</button>
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-between">
+                            <button id="4"  class="btn btn-light">4</button>
+                            <button id="5"  class="btn btn-light">5</button>
+                            <button id="6"  class="btn btn-light">6</button>
+                            <button id="plus"  class="btn btn-light">+</button>
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-between">
+                            <button id="1"  class="btn btn-light">1</button>
+                            <button id="2"  class="btn btn-light">2</button>
+                            <button id="3"  class="btn btn-light">3</button>
+                            <button id="backspace"  class="btn btn-outline-success"> < </button>
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-between">
+                                <button id="0"  class="btn btn-light">0</button>
+                                <button id="equal"  class="btn btn-success">=</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
