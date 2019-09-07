@@ -26,40 +26,52 @@
                         </form>
                         <div class="d-flex justify-content-between">
                             <button id="clear"  class="btn btn-outline-danger">C</button>
-                            <button id="divide"  class="btn btn-light">/</button>
-                            <button id="multiply"  class="btn btn-light">*</button>
-                            <button id="space"  class="btn btn-light">space</button>
+                            <button id="divide" onclick="addText('/')" class="btn btn-light">/</button>
+                            <button id="multiply" onclick="addText('*')" class="btn btn-light">*</button>
+                            <button id="space" onclick="addText(' ')" class="btn btn-light">space</button>
                         </div>   
                         <br>
                         <div class="d-flex justify-content-between">
-                            <button id="7"  class="btn btn-light">7</button>
-                            <button id="8"  class="btn btn-light">8</button>
-                            <button id="9"  class="btn btn-light">9</button>
-                            <button id="minus"  class="btn btn-light">-</button>
+                            <button id="7" onclick="addText('7')" class="btn btn-light">7</button>
+                            <button id="8" onclick="addText('8')" class="btn btn-light">8</button>
+                            <button id="9" onclick="addText('9')" class="btn btn-light">9</button>
+                            <button id="minus" onclick="addText('-')" class="btn btn-light">-</button>
                         </div>
                         <br>
                         <div class="d-flex justify-content-between">
-                            <button id="4"  class="btn btn-light">4</button>
-                            <button id="5"  class="btn btn-light">5</button>
-                            <button id="6"  class="btn btn-light">6</button>
-                            <button id="plus"  class="btn btn-light">+</button>
+                            <button id="4" onclick="addText('4')" class="btn btn-light">4</button>
+                            <button id="5" onclick="addText('5')" class="btn btn-light">5</button>
+                            <button id="6" onclick="addText('6')" class="btn btn-light">6</button>
+                            <button id="plus" onclick="addText('+')" class="btn btn-light">+</button>
                         </div>
                         <br>
                         <div class="d-flex justify-content-between">
-                            <button id="1"  class="btn btn-light">1</button>
-                            <button id="2"  class="btn btn-light">2</button>
-                            <button id="3"  class="btn btn-light">3</button>
+                            <button id="1" onclick="addText('1')" class="btn btn-light">1</button>
+                            <button id="2" onclick="addText('2')" class="btn btn-light">2</button>
+                            <button id="3" onclick="addText('3')" class="btn btn-light">3</button>
                             <button id="backspace"  class="btn btn-outline-success"> < </button>
                         </div>
                         <br>
                         <div class="d-flex justify-content-between">
-                                <button id="0"  class="btn btn-light">0</button>
+                                <button id="0" onclick="addText('0')" class="btn btn-light">0</button>
                                 <button id="equal"  class="btn btn-success">=</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
+    
+    <script>
+      
+
+       /* ========================================
+            now lets create addText() to add value 
+                  into our calculator input
+          ========================================  */
+          function addText(text) {
+                document.getElementById('Input').value += text;
+          }
+    </script>
 </body>
 </html>
