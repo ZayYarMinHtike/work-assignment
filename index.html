@@ -94,8 +94,41 @@
         function Evaluate () {
             //we will call the input value here
             const input = inputBox.value;
-            console.log(input);
-            //we got the values of input in console
+            
+            // now lets take those value into array by splitting spaces
+            const values = input.split(" ");
+            console.log(values);
+            //we got  ["8", "9", "*"] as arrays as we input
+
+            //and lets create values loop on each array
+            for( i in values ) {
+                const operator = values[i];
+                //we will use results to calculate on switch
+                //we need values to calculate like val1 and val2
+                const val2 = array.pop();
+                const val1 = array.pop();
+                
+                //here, we do caculation by catching operator and do math two number before it
+                switch (operator) {
+                    case "+":
+                        array.push(eval("val1 + val2"));
+                        break;
+
+                    case "*":
+                        array.push(eval("val1 * val2"));
+                         break;
+
+                    case "-":
+                        array.push(eval("val1 - val2"));
+                        break;
+
+                    case "/":
+                        array.push(eval("val1 / val2"));
+                        break;
+                }
+                
+            }
+            //and how we return the value and what if there is no operator  ?
         }
 
     </script>
